@@ -1,1 +1,2 @@
 IRC-user nicknamed flexd
+cat no_domains_uniq.txt | grep -i -F '.no' | tr 'A-Z' 'a-z' | ../dotno '$|\/|"|&|\?|,' | sort | uniq > flexd.domains2

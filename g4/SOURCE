@@ -1,1 +1,2 @@
 IRC-user nicknamed g4
+cat big-no.csv | grep -i -F '.no' | tr 'A-Z' 'a-z' | ../dotno '$|\/|"|&|\?|,' | sort | uniq > g4.domains
