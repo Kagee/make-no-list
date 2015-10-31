@@ -1,0 +1,2 @@
+http://data.norge.no/data/registerenheten-i-br%C3%B8nn%C3%B8ysund/enhetsregisteret
+cat enhetsregisteret.csv hovedenheter.csv  | grep -i -F '.no' | tr 'A-Z' 'a-z' | tr '/' '\n' | tr ';' '\n' | ../dotno '$|\/|"|&|\?' | sort | uniq > enhetsregisteret.domains

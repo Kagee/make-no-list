@@ -1,0 +1,2 @@
+http://urlsearch.commoncrawl.org/?q=no
+cat download\?q=no | tr 'A-Z' 'a-z' | tr '/' '\n' | ../dotno '$|\/|"|&|\?' | sort | uniq > commoncrawl.domains

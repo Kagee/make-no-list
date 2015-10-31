@@ -1,0 +1,2 @@
+https://gist.github.com/chilts/7229605
+cat top-1m.csv | ../dotno | tr 'A-Z' 'a-z' | sort | uniq > alexa.domains2
