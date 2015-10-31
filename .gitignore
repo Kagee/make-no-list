@@ -8,3 +8,5 @@ old/
 wayback/data-uniq/
 wayback/data-ok/
 wayback/data/
+!no-test.txt
+!test.txt
