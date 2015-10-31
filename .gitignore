@@ -1,2 +1,10 @@
 *.domains
 *.tmp
+*.csv
+*.txt
+*.json
+*.gz
+old/
+wayback/data-uniq/
+wayback/data-ok/
+wayback/data/

@@ -1,0 +1,10 @@
+Auto-generated:
+
+import itertools
+import sys
+
+text="abcdefghijklmnopqrstuvwxyz0123456789"
+
+for perm in itertools.product(list(text), repeat=2):
+    print("".join(perm) + ".no")
+

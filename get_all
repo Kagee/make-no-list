@@ -1,0 +1,18 @@
+#! /bin/bash
+rm all_sources.dom
+rm all_sources.dom.tmp
+rm all_sources.dom.tmp2
+rm all_sources.dom.idnerror
+
+cat $(find . -name '*.domains') | tr 'A-Z' 'a-z' | sort | uniq > all_sources.dom.tmp
+
+while read LINE; 
+do
+        F=$(idn $LINE >> all_sources.dom.tmp2);
+        if [ $? -gt 0 ]; then
+                echo error $LINE >> all_sources.dom.idnerror;
+        fi;
+done  <<<"$(cat all_sources.dom.tmp)"
+
+
+cat all_sources.dom.tmp2 | tr 'A-Z' 'a-z' | sort | uniq > all_sources.dom
