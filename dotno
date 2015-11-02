@@ -1,2 +1,2 @@
 #! /bin/bash
-E=${1-$}; perl -CSD -ne '$x=qr/[a-z0-9\x{C5}\x{C6}\x{D8}\x{E0}\x{E1}\x{E4}-\x{EA}\x{F1}-\x{F4}\x{F6}\x{F8}\x{FC}\x{10D}\x{111}\x{144}\x{14B}\x{161}\x{167}\x{17E}]/; print $1,"\n" if /($x($x|-){0,61}$x\.no)('$E')/i'
+perl -CSD -ne '$x=qr/[a-z0-9\x{C5}\x{C6}\x{D8}\x{E0}\x{E1}\x{E4}-\x{EA}\x{F1}-\x{F4}\x{F6}\x{F8}\x{FC}\x{10D}\x{111}\x{144}\x{14B}\x{161}\x{167}\x{17E}]/i; while(/($x($x|-){0,61}$x\.no)(?!$x)/gi) { print $1,"\n"; }'
