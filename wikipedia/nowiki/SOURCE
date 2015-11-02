@@ -1,0 +1,2 @@
+https://dumps.wikimedia.org/nowiki/20151020/nowiki-20151020-pages-articles.xml.bz2
+cat nowiki-*-pages-articles.xml | ../../dotno > nowiki.domains
