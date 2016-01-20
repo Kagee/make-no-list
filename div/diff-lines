@@ -1,4 +1,8 @@
 #! /bin/bash
 # Print lines in 2 not in 1 (i think)
-[ "$#" -ne 2 ] || die "2 filer kreves som input, 1. needle, og 2. haystack"
-grep -F -x -v -f "$1" "$2"
+if [ $# -eq 2 ]; then
+	grep -F -x -v -f "$1" "$2"
+else
+	echo "2 filer kreves som input, 1. needle, og 2. haystack"; 
+	exit;
+fi
