@@ -5,8 +5,11 @@
 *.json
 *.gz
 old/
+# see https://github.com/Kagee/domain-checker
+domain-checker/
 wayback/data-uniq/
 wayback/data-ok/
 wayback/data/
+alexa/top-1m.csv.zip
 !no-test.txt
 !test.txt
