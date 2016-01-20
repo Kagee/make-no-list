@@ -7,6 +7,8 @@
 old/
 # see https://github.com/Kagee/domain-checker
 domain-checker/
+# Storage-symlink for massive (>2gb datafiles)
+storage
 wayback/data-uniq/
 wayback/data-ok/
 wayback/data/

@@ -7,20 +7,20 @@ all: $(OUTPUT)
 clean:
 	rm -f $(OUTPUT).tmp $(OUTPUT)
 
-$(OUTPUT).tmp: alexa/alexa.domains 2-letter/2.domains
+$(OUTPUT).tmp: alexa/alexa.domains 2-letter/2.domains commoncrawl/commoncrawl.domains
 	cat $^ > $(OUTPUT).tmp
 
 $(OUTPUT): $(OUTPUT).tmp
 	sort $(OUTPUT).tmp | uniq > $(OUTPUT)
 
-commoncrawl/download.json: 
-	# Not phony, as it generated and must 
-	# be updated manually
-	# I don't think this downloads all matches ....
-	wget -O download.json "http://urlsearch.commoncrawl.org/download?q=no."
+commoncrawl/commoncrawl.domains: commoncrawl/commoncrawl.domains.notuniq
+	uniq $< > $@
 
-commoncrawl/commoncrawl.domains: commoncrawl/download.json
-	cat $< | ./default_extract > $@
+commoncrawl/commoncrawl.domains.notuniq: commoncrawl/commoncrawl.domains.unsorted
+	sort $< > $@
+
+commoncrawl/commoncrawl.domains.unsorted: storage/cdx-index-client/CC-MAIN-2014-52/domain-no-00.gz storage/cdx-index-client/CC-MAIN-2015-48/domain-no-67.gz
+	commoncrawl/get-unsorted.sh > $@
 
 alexa/top-1m.csv.zip:
 	cd alexa; \
