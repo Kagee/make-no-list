@@ -1,2 +1,3 @@
-http://urlsearch.commoncrawl.org/?q=no
-cat download\?q=no | tr 'A-Z' 'a-z' | tr '/' '\n' | ../dotno '$|\/|"|&|\?' | sort | uniq > commoncrawl.domains
+Download http://index.commoncrawl.org/
+using https://github.com/ikreymer/cdx-index-client
+then extract using Makefile
