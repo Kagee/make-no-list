@@ -1,0 +1,15 @@
+#! /bin/bash
+
+cat wayback.domains.noidn | tr 'A-Z' 'a-z' | sort | uniq > wayback.domains.1.tmp 
+
+while read LINE; 
+do
+        F=$(idn $LINE >> wayback.domains.2.tmp);
+        if [ $? -gt 0 ]; then
+                echo error $LINE >> wayback.domains.idnerror;
+        fi;
+done  <<<"$(cat wayback.domains.1.tmp)"
+
+
+cat wayback.domains.2.tmp | tr 'A-Z' 'a-z' | sort | uniq > wayback.domains
+rm *.tmp
